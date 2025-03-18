@@ -30,6 +30,7 @@ function Second(props) {
                   backgroundColor: 'dodgerblue',
                   color: 'white',
                   float: 'left',
+                  //display: 'flex'
             }}>
                   <h2>second div</h2>
                   {props.msg}

@@ -20,10 +20,10 @@ function Start() {
                   <h2> 10</h2>
                   <input type="button" value="10-1. comp예제1" onClick={() => { movePage('/comp10a'); }} />
                   <input type="button" value="10-2. comp예제2" onClick={() => { movePage('/comp10b'); }} />
-                  <input type="button" value="10-2. comp예제3" onClick={() => { movePage('/comp10c'); }} />
-                  <input type="button" value="10-2. comp예제4" onClick={() => { movePage('/comp10d'); }} />
-                  <input type="button" value="10-2. comp예제5" onClick={() => { movePage('/comp10e'); }} />
-                  <input type="button" value="10-2. comp예제6" onClick={() => { movePage('/comp10f'); }} />
+                  <input type="button" value="10-3. comp예제3" onClick={() => { movePage('/comp10c'); }} />
+                  <input type="button" value="10-4. comp예제4" onClick={() => { movePage('/comp10d'); }} />
+                  <input type="button" value="10-5. comp예제5" onClick={() => { movePage('/comp10e'); }} />
+                  <input type="button" value="10-6. comp예제6" onClick={() => { movePage('/comp10f'); }} />
             </div>
 
       )

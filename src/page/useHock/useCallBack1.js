@@ -1,15 +1,61 @@
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Switch } from 'react-router-dom';
-import { useState, useRef } from 'react'
+import axios from 'axios';
+import React, { useState, useRef, useEffect } from 'react';
+import { FaRegular } from 'react-icons/fa';
+import { FaThumbsUp } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function Comp4b() {
+export default function useCallBack1() {
+      //1. 유즈이펙트쓰기 // 람다, 대괄호
+
+      //2. index.js 스트릭트 모드 제거
+
+
+      // useEffect(() => {
+      //       alert('마운팅');
+      // }, []);
+
+      //3. 
+      const [count, setCount] = useState(0);
+      //const [count2, setCount2] = useState(0);
+
+      useEffect(() => {
+            console.log('카운트 되었습니다.');
+            console.log('카운트 된 숫자' + count);
+
+            //    set(count + 1);
+      }, [count]);
+      //}, [count, count2]);
+      //대괄호는 주소를 기준으로 감지
+
+      //4. 
+      useEffect(() => {
+            console.log('mount 시작//////////////////////////////');
+            console.log('mount');
+            console.log('action, 액션실행부분');
+            return () => {
+
+                  console.log('unmount 시작=====================');
+                  console.log('unmount');
+            }
+      }, [count]);
+
+      //5. useEffect 계산기 연습 ==============================================
 
       const 입력1ref = useRef(0);
       const 입력2ref = useRef(0);
       const opRef = useRef('+');
 
-
       const [계산, set계산] = useState(0);  //계산 결과
       const [히스토리, set히스토리] = useState([]); //계산 기록
+
+      useEffect(() => {
+            console.log('계산 결과를 출력합니다');
+            console.log(계산);
+            return () => {
+                  console.log('unmount');
+            }
+      }, [계산])
+
 
       const handlerResult = () => {
 
@@ -38,26 +84,27 @@ export default function Comp4b() {
             set히스토리([his, ...히스토리]);
       }
 
-
       return (
             <div>
+                  <h1> useEffect</h1>
+                  <input type="button"
+                        value="증가"
+                        onClick={
+                              () => setCount(count + 1)} />
+
+                  {/* 아이디 중복검사, 유효성에 활용 */}
+
+
+                  <span> {count}</span>
                   <br />
                   <br />
-                  <span>4-2 계산기 2</span>
+
+                  <span>계산기에 숫자 입력시 입력되었다고 log받기 ==============================================</span>
+                  <br />
 
                   <span>계산: </span>
                   <span>{계산}</span>
                   <br />
-
-                  {/* <input type="text" onChange={e=>set입력1(e.target.value)} value={입력1} />
-      <select onChange={e=>setOp(e.target.value)}>
-        <option value='+'>+</option>
-        <option value='-'>-</option>
-        <option value='*'>*</option>
-        <option value='/'>/</option>
-      </select>
-      <input type="text" onChange={e=>set입력2(e.target.value)} />
-      <input type="button" value="계산 결과" onClick={handlerResult} /> */}
 
                   <입력_컴포넌트 handlerInput={
 
@@ -84,7 +131,6 @@ export default function Comp4b() {
                   <div style={{
                         border: '3px solid red'
                   }}>
-                        <h1>History</h1>
                         <div>
                               {히스토리.map((item, index) =>
                                     <컴포넌트 data={item} key={index}> </컴포넌트>
@@ -92,15 +138,8 @@ export default function Comp4b() {
                               )}
                         </div>
                   </div>
-
-                  <부모호출 handlerChild={
-                        val => {
-                              alert('자식이 부모 호출');
-                              alert(val);
-                        }
-                  } />
             </div>
-      );
+      )
 }
 
 /** 입력 Component */
@@ -109,6 +148,22 @@ function 입력_컴포넌트(props) {
       const [자식_입력1, set자식_입력1] = useState(0);
       const [자식_입력2, set자식_입력2] = useState(0);
       const [자식_op, set자식_op] = useState('+');
+
+      useEffect(() => {
+            console.log('숫자1 입력 완료.');
+            return () => {
+                  //console.log('');
+            }
+
+      }, [자식_입력1]);
+
+      useEffect(() => {
+            console.log('숫자2 입력 완료.');
+            return () => {
+                  //console.log('');
+            }
+
+      }, [자식_입력2]);
 
       function handlerSend() {
             const obj = { num1: 자식_입력1, num2: 자식_입력2, op: 자식_op };
@@ -140,21 +195,6 @@ function 컴포넌트(props) {
                   {props.data.op}
                   {props.data.num2} =
                   {props.data.result}
-            </div>
-      )
-}
-
-/** 자식이 부모 호출 */
-function 부모호출(props) {
-      return (
-            <div>
-                  <input type="button" value="부모호출" onClick={
-                        () => {
-                              alert('부모 호출');
-                              props.handlerChild('HI');
-                        }
-                  } />
-
             </div>
       )
 }

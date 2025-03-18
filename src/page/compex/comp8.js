@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import { FaCheck } from 'react-icons/fa';
-//import Popup from './Popup';
-
+import { FaCheck } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import Popup from './Popup.js';
 
 export default function Comp8() {
 
@@ -40,7 +40,10 @@ export default function Comp8() {
                   setUsernameMsg("4-12 사이 대소문자 또는 숫자만 입력해주세요.");
                   setIsUsername(false);
             } else {
-                  setUsernameMsg("사용 가능한 아이디입니다.");
+                  setUsernameMsg(
+                        <span>&nbsp;<FaCheck /> <FontAwesomeIcon icon="fa-solid fa-check" />
+                              &nbsp;사용 가능한 아이디입니다.</span>
+                  );
                   setIsUsername(true);
             }
       };
@@ -75,7 +78,8 @@ export default function Comp8() {
             console.log(e.target.value);
             const currentPhone = e.target.value;
             setPhone(currentPhone);
-            const phoneRegExp = /^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/;
+            const phoneRegExp = /^01([0])([0-9]{4})([0-9]{4})$/;
+            //const phoneRegExp = /^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/;
 
             if (!phoneRegExp.test(currentPhone)) {
                   setPhoneMsg("올바른 형식이 아닙니다!");
@@ -242,7 +246,7 @@ export default function Comp8() {
                         <div className="d-flex align-items-center">
 
                               <div>
-                                    <span>	<label htmlFor="extratime" >취미</label></span>
+                                    <span><label htmlFor="extratime" >취미</label></span>
                               </div>
 
                               <div>
@@ -263,6 +267,8 @@ export default function Comp8() {
                                     } />
 
                         </div>
+
+                        {/* 입력결과 보기 */}
                         {result && (
                               <div>
                                     <p><strong>아이디:</strong> {username}</p>
@@ -274,9 +280,9 @@ export default function Comp8() {
                                     <p><strong>취미:</strong> {extratime.join(", ")}</p>
                               </div>
                         )}
+
+
                   </div>
-
-
             </div>
       )
 }

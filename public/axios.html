@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+      <head>
+            <meta charset="UTF-8">
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1.0">
+            <title>axios_250218</title>
+      </head>
+      <body>
+
+            <script>
+
+ 프로();
+ function 프로(){
+       const bit = new Promise(
+       (resolve, reject) => {
+             setTimeout(() => {
+             //alert('data');
+             
+             //resolve("succeeded");
+
+             reject('failed');
+              },1000);
+
+             // setTimeout(handler: TimerHandler, timeout?: number, ...arguments: any[]): number)
+       });
+
+       bit.then(value => {
+            alert(value);
+       })
+
+       .catch(error => {
+            console.log(error);
+       })
+      
+
+            </script>
+      </body>
+</html>

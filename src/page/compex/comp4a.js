@@ -104,7 +104,7 @@ export default function Comp4a() {
 
                   <input type="text" id="num2" />
 
-                  <button type="button" value="결과 계산" onClick={calc}>결과 계산</button>
+                  <button type="button" value="계산" onClick={calc}>계산</button>
 
             </div>
       )

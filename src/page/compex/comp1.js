@@ -3,7 +3,6 @@ export default function Comp1() {
 
       const [아이디, set아이디] = useState('');
       const [비밀번호, set비밀번호] = useState('');
-
       const [완료, set완료] = useState(false);
 
 
@@ -29,6 +28,15 @@ export default function Comp1() {
                         <input type="text" value={아이디} onChange={
                               e => set아이디(e.target.value)
                         } />
+
+                        {/* 아이디값을 콘솔에 찍어보고 싶을 때 */}
+                        {/* <input type="text" value={아이디} onChange={
+                              e => {
+                                    set아이디(e.target.value);
+                                    console.log('아이디 입력값:', e.target.value);
+                              }
+                        } /> */}
+
                         <input type="password" value={비밀번호} onChange={
                               e => set비밀번호(e.target.value)
                         } />

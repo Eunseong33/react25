@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function Comp7() {
 
@@ -25,6 +25,9 @@ export default function Comp7() {
       }
       const [title, setTitle] = useState(obj);
 
+      useEffect(() => {
+            console.log('hi');
+      });
 
       return (
             <div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+      <head>
+            <meta charset="UTF-8">
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1.0">
+            <title>promise_250218</title>
+      </head>
+      <body>
+            <script
+                  src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+            <script>
+//1. promise
+
+//  프로();
+//  function 프로(){
+//        const bit = new Promise(
+//        (resolve, reject) => {
+//              setTimeout(() => {
+//              alert('data');
+             
+//              resolve("succeeded");
+
+//              reject('failed');
+//               },1000);
+
+//        }); 
+
+//        bit.then(value => {
+//             alert(value);
+//        })
+
+//        .catch(error => {
+//             console.log(error);
+//        })
+//       }
+
+
+       //============
+       //1. 서버에 호출
+       //2. 서버에서 **데이터를 받은 후** 함수 실행
+       //3. 데이터를 받기 전에 함수가 먼저 실행
+// ay();
+// async function ay(){
+// await thread(); //기다리는 대상 (async가 무조건 pair로 가야함.)
+// alert('1. after');
+// }
+
+// function thread(){
+//       setTimeout(()=> {
+//             alert('2.  set Time out execute');
+//       }, 3000);
+//       }
+
+//==========
+ay();
+async function ay(){
+await thread(); //기다리는 대상 (async가 무조건 pair로 가야함.)
+alert('1. after');
+}
+
+importeee();
+function importeee() {
+      axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+            console.log(response);
+      })
+}
+            </script>
+      </body>
+</html>

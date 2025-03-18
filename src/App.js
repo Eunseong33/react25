@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate, Switch } from 'react-router-dom';
+import axios from 'axios';
 import Comp1 from './page/compex/comp1.js';
 import Comp2 from './page/compex/comp2.js';
 import Comp3 from './page/compex/comp3.js';
@@ -21,11 +22,23 @@ import Comp10e from './page/compex/comp10e.js';
 import Comp10f from './page/compex/comp10f.js';
 import Comp11 from './page/compex/comp11.js';
 
+import AxiosExam1 from './page/axios/exam1.js';
+import AxiosExam2 from './page/axios/exam2.js';
+import AxiosExam3 from './page/axios/exam3.js';
+
+import UseEffect1 from './page/useHock/useEffect1.js';
+
+import UseCallBack1 from './page/useHock/useCallBack/Parent.js';
+import UseMemo1 from './page/useHock/useMemo/Memo1.js';
+import Reducer1 from './page/reducer1.js';
+import Reducer1a from './page/reducer1a.js';
+
+import 실행 from './page/redux/redux1.js';
 
 function App() {
   return (
     <div className="App">
-
+      {/* 원래 리덕스는 여기에 설치하는거임*/}
       <Router>
         {/* {보이기 && */}
 
@@ -52,6 +65,21 @@ function App() {
           <Route path={"/comp10e"} element={<Comp10e />}></Route>
           <Route path={"/comp10f"} element={<Comp10f />}></Route>
           <Route path={"/comp11"} element={<Comp11 />}></Route>
+          {/* 엑시오스 연습 시작 */}
+          <Route path={"/axios1"} element={<AxiosExam1 />}></Route>
+          <Route path={"/axios2"} element={<AxiosExam2 />}></Route>
+          <Route path={"/axios3"} element={<AxiosExam3 />}></Route>
+          {/* useEffect연습시작 */}
+          <Route path={"/useEffect1"} element={<UseEffect1 />}></Route>
+
+          {/* useCallBack연습 */}
+          <Route path={"/parent"} element={<UseCallBack1 />}></Route>
+          <Route path={"/memo1"} element={<UseMemo1 />}></Route>
+          <Route path={"/reducer1"} element={<Reducer1 />}></Route>
+          <Route path={"/reducer1a"} element={<Reducer1a />}></Route>
+
+          <Route path={"/redux1"} element={<실행 />}></Route>
+
         </Routes>
       </Router>
     </div>
@@ -83,7 +111,7 @@ function 헤더() {
 
   return (
     <div style={{
-      border: '1px solid #181818'
+      border: '1px solid #ff3399'
     }}>
       <h2 style={{
         cursor: 'pointer'
@@ -105,6 +133,24 @@ function 헤더() {
       <input type="button" value="10. comp예제" onClick={() => { movePage('/comp10'); }} />
       <input type="button" value="11. comp11 이동" onClick={() => { movePage('/comp11'); }} />
 
+      <br />
+      <br />
+      {/* 엑시오스 연습 시작 */}
+      <input type="button" value="1. axios1 api 지역" style={{ backgroundColor: '#ffc0cb', border: "1px solid #ffc0cb" }} onClick={() => { movePage('/axios1'); }} />&nbsp;
+      <input type="button" value="2. axios2 api 지역등록" style={{ backgroundColor: '#ffc0cb', border: "1px solid #ffc0cb" }} onClick={() => { movePage('/axios2'); }} />&nbsp;
+      <input type="button" value="3. axios3 api 아이템" style={{ backgroundColor: '#ffc0cb', border: "1px solid #ffc0cb" }} onClick={() => { movePage('/axios3'); }} />&nbsp;
+      <br />
+      <br />
+      {/* useEffect연습시작 */}
+      <input type="button" value="1. useEffect연습1" style={{ backgroundColor: '#B0E0E6', border: "1px solid #B0E0E6" }} onClick={() => { movePage('/useEffect1'); }} />&nbsp;
+
+      {/* useCallBack연습 */}
+      <input type="button" value="2. useCallBack" style={{ backgroundColor: '#B0E0E6', border: "1px solid #B0E0E6" }} onClick={() => { movePage('/parent'); }} />&nbsp;
+      <input type="button" value="3. useMemo" style={{ backgroundColor: '#B0E0E6', border: "1px solid #B0E0E6" }} onClick={() => { movePage('/memo1'); }} />&nbsp;
+      <input type="button" value="1. Reducer" style={{ backgroundColor: '#B0E0E6', border: "1px solid #B0E0E6" }} onClick={() => { movePage('/reducer1'); }} />&nbsp;
+      <input type="button" value="1a. Reducer 버튼" style={{ backgroundColor: '#B0E0E6', border: "1px solid #B0E0E6" }} onClick={() => { movePage('/reducer1a'); }} />&nbsp;
+      <input type="button" value="1. Redux 버튼" style={{ backgroundColor: '#B0E0E6', border: "1px solid #B0E0E6" }} onClick={() => { movePage('/redux1'); }} />&nbsp;
+
     </div >
 
   )
@@ -115,7 +161,13 @@ function 헤더() {
 function 시작화면() {
   return (
     <div>
-      아쌀라말라이쿵
+      <span>http://192.168.0.123:3000/</span><br />
+      <a href="http://192.168.0.123:3000/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        http://192.168.0.123:3000/</a>
+
+      <a href="https://emojipedia.org/?form=MG0AV3" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+        https://emojipedia.org/?form=MG0AV3</a>
+
     </div>
   )
 }

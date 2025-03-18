@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+      <head>
+            <meta charset="UTF-8">
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1.0">
+            <title>함수 표현식</title>
+      </head>
+      <body>
+            <input type="button" value="함수1" onclick="fn1()" />
+
+            <script>
+            //함수 선언식
+            fn1(); //먼저 선언해서 함수를 호출
+
+            function fn1(){
+                  alert('fn1');
+            }
+
+            //함수 표현식 ***
+            let fn2 = function(){
+                  alert('fn2'); //변수에 담아서 function을 못찾음. 이 상황에서는 fn2();를 아래에 둬야함
+            }
+            //callBack, promise() 개념에서 사용
+            fn2(); 
+
+            //자바 anonymous 참고,
+            //  함수표현식 => 람다로 변형
+            //1. function 지우고, 2. () 뒤에 =>  넣는다.
+            
+            // let fn3 = function() { 
+            //       alert('fn3');
+            // }
+            
+            let fn3 = () => { 
+                  alert('fn3');
+            }
+            fn3();
+            //첫번째 규칙
+            //매개변수가 하나일 때만, 소괄호가 생략이 가능하다. 
+            //없거나, 2개 이상일때에는 반드시 소괄호를 만들어야함.
+
+            let fn4 = val => {
+                  console.log(val);
+                  alert('fn4');
+            }
+
+            fn4('Hello World');
+
+            let fn5 = (val1, val2) => {
+                  console.log(val1);
+                  console.log(val2);
+                   
+            }
+            fn5(100,50);
+
+            //중괄호 생략
+            //코드가 한줄이면 중괄호 생략도 가능하다.
+            let fn6 = val => console.log(fn6) //react에서는 중괄호 생략하고 끝났기 때문에 세미콜론 안붙임. 
+            fn6('Hi');
+      </script>
+      </body>
+</html>

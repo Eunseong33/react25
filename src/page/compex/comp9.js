@@ -12,7 +12,7 @@ export default function Comp9() {
 
 
       //2. 구구단
-      const numJ = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const numJ = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
       const [numI, setNumI] = useState(1);
 
 
